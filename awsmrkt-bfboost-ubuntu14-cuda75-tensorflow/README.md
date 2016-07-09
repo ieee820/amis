@@ -1,8 +1,9 @@
 
-# {{ ami_title }} AMI Readme
--------------------------------------------------------------------------------
+{{ ami_title }} AMI Readme
+==============================================================================
 
-## EC2 Instance Access
+
+EC2 Instance Access
 -------------------------------------------------------------------------------
 
 To get started, launch an AWS instances using this AMI from the EC2
@@ -22,7 +23,7 @@ Tensorflow scripts you may have.
 
 
 
-## Jupyter Notebook - http://<EC2 Instance Public IP>:8888
+Jupyter Notebook - http://<EC2 Instance Public IP>:8888
 -------------------------------------------------------------------------------
 
 ### Logging In
@@ -38,6 +39,7 @@ Use the following command to get the instance ID (Jupyter Notebook Password):
   ec2metadata --instance-id
 
 ```
+
 
 ### Updating the HASHED Password:
 
@@ -70,6 +72,7 @@ To have the new password take effect restart the Jupyter:
   service ipython-notebook restart
 ```
 
+
 ### Notebook Location
 
 The default notebook directory is /home/ubuntu/pynb.  This directory is
@@ -77,7 +80,8 @@ required for Jupyter to function.  If it is deleted you will need
 recreate it and ensure it is owned by the ubuntu user.
 
 
-## TensorFlow
+
+TensorFlow
 -------------------------------------------------------------------------------
 
 Tensor flow and it's examples are installed within the ubuntu users home
@@ -170,7 +174,7 @@ To view all the GPUs being used run nvidia-smi:
 ```
 
 
-## TensorFlow Magenta
+TensorFlow Magenta
 -------------------------------------------------------------------------------
 
 This AMI also has Tensorflow Magenta bundled with it.  A library that uses
@@ -181,7 +185,7 @@ machine learning to create compelling art and music.
 
 
 
-## Keras
+Keras
 -------------------------------------------------------------------------------
 
 This AMI has Keras set to use Tensorflow as it's backend
@@ -213,7 +217,7 @@ Keras as a simplified interface to TensorFlow: tutorial, by Francois Chollet
 
 
 
--------------------------------------------------------------------------------
+
 Supported AWS Instances
 -------------------------------------------------------------------------------
 
@@ -228,13 +232,17 @@ d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
 g2.2xlarge	g2.8xlarge
 
 
--------------------------------------------------------------------------------
+
 Version History
 -------------------------------------------------------------------------------
 
+{% for version in salt['pillar.get'](salt['grains.get']('role') ~ ':ami_version_release_notes') %}
+{{ version }}
+{% set vinfo = salt['pillar.get'](salt['grains.get']('role') ~ ':ami_version_release_notes:' ~ version) %}
+{{ vinfo }}
+{% endfor %}
 
 
--------------------------------------------------------------------------------
 Support
 -------------------------------------------------------------------------------
 
