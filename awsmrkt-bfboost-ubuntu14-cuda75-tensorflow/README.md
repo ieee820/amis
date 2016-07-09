@@ -213,8 +213,8 @@ Keras as a simplified interface to TensorFlow: tutorial, by Francois Chollet
 
 
 
-
-## Supported AWS Instances
+-------------------------------------------------------------------------------
+Supported AWS Instances
 -------------------------------------------------------------------------------
 
 t2.medium	t2.large
@@ -228,14 +228,14 @@ d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
 g2.2xlarge	g2.8xlarge
 
 
-
-## Version History
+-------------------------------------------------------------------------------
+Version History
 -------------------------------------------------------------------------------
 
 
 
-
-## Support
+-------------------------------------------------------------------------------
+Support
 -------------------------------------------------------------------------------
 
 Please send all comments and support request to support@bitfusion.io
