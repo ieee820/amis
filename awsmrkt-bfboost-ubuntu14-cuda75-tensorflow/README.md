@@ -20,14 +20,14 @@ Tensorflow scripts you may have.
 
 
 
-Jupyter Notebook - http://<EC2 Instance Public IP>:8888
+Jupyter Notebook - http://{EC2 Instance Public IP}:8888
 -------------------------------------------------------
 
 ### Logging In
 
 You can login to the notebook at:
 
-  http://<EC2 Instance Public IP>:8888
+  http://{EC2 Instance Public IP}:8888
 
   The login PASSWORD is set to the Instance ID.
 
