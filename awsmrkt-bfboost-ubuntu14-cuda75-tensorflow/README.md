@@ -1,5 +1,5 @@
 
-{{ ami_title }} AMI Readme
+Bitfusion Boost Ubuntu 14 Tensorflow AMI Readme
 ==============================================================================
 
 
@@ -15,7 +15,7 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html
 Accessing the instance via SSH:
 
 ```
-ssh -i <path to your pem file> ubuntu@<EC2 Instance Public IP>
+ssh -i <path to your pem file> ubuntu@{ EC2 Instance Public IP }
 ```
 
 Once you have logged in into the instance you are instantly ready to launch any
@@ -23,7 +23,7 @@ Tensorflow scripts you may have.
 
 
 
-Jupyter Notebook - http://<EC2 Instance Public IP>:8888
+Jupyter Notebook - http://{ EC2 Instance Public IP }:8888
 -------------------------------------------------------------------------------
 
 ### Logging In
@@ -236,11 +236,24 @@ g2.2xlarge	g2.8xlarge
 Version History
 -------------------------------------------------------------------------------
 
-{% for version in salt['pillar.get'](salt['grains.get']('role') ~ ':ami_version_release_notes') %}
-{{ version }}
-{% set vinfo = salt['pillar.get'](salt['grains.get']('role') ~ ':ami_version_release_notes:' ~ version) %}
-{{ vinfo }}
-{% endfor %}
+
+v0.02
+
+* Added Keras python library
+Added Tensorflow Magenta
+Upgrade to cudnn 5
+Upgrade to the latest version of boost 0.1.0+1518
+Upgrade to the latest version of Tensorflow (0.9)
+
+
+v0.01
+
+* Nvidia Driver Version:  352
+Cuda Toolkit Version:   7.5
+Nvidia cuDNN Version:   4
+bfboost:                0.1.0+1402
+
+
 
 
 Support
