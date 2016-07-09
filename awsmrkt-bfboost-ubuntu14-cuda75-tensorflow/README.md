@@ -26,7 +26,7 @@ Tensorflow scripts you may have.
 Jupyter Notebook - http://{ EC2 Instance Public IP }:8888
 -------------------------------------------------------------------------------
 
-### Logging In
+#### Logging In
 
 You can login to the notebook at:
 
@@ -41,7 +41,7 @@ Use the following command to get the instance ID (Jupyter Notebook Password):
 ```
 
 
-### Updating the HASHED Password:
+#### Updating the HASHED Password:
 
 **It is highly recommended that you change the Jupyter login password.**
 
@@ -73,7 +73,7 @@ To have the new password take effect restart the Jupyter:
 ```
 
 
-### Notebook Location
+#### Notebook Location
 
 The default notebook directory is /home/ubuntu/pynb.  This directory is
 required for Jupyter to function.  If it is deleted you will need
@@ -94,7 +94,7 @@ both CPU and GPU kernels. On a system with devices cpu:0 and gpu:0, gpu:0 will
 be selected to run matmul.
 
 
-### TensorFlow Notebook Tutorials
+#### TensorFlow Notebook Tutorials
 
 The assignments for the Udacity Deep Learning class with TensorFlow have been
 added the Jupyter notebook under the directory udacity.
@@ -111,9 +111,9 @@ Github README can be found at:
 
 
 
-### Tensorflow CLI Examples
+#### Tensorflow CLI Examples
 
-#### Example 1: Import Python Module
+##### Example 1: Import Python Module
 
 ```
   $ python
@@ -135,13 +135,13 @@ Github README can be found at:
     >>>
 ```
 
-#### Example 2: Trainning a CNN using MNIST dataset
+##### Example 2: Trainning a CNN using MNIST dataset
 
 ```
     python ~/tensorflow/tensorflow/models/image/mnist/convolutional.py
 ```
 
-#### Example 3:  Training a CNN the CIFAR-10 dataset
+##### Example 3:  Training a CNN the CIFAR-10 dataset
 
 The tensorflow documentation has a great write up using this dataset:
 https://www.tensorflow.org/versions/master/tutorials/deep_cnn/index.html
@@ -205,7 +205,7 @@ Use Keras if you need a deep learning library that:
 Read the documentation at Keras.io.
 
 
-### Keras Tensorflow Tutorial:
+#### Keras Tensorflow Tutorial:
 
 Keras as a simplified interface to TensorFlow: tutorial, by Francois Chollet
 
