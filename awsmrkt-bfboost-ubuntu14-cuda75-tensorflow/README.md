@@ -188,7 +188,7 @@ machine learning to create compelling art and music.
 Keras
 -------------------------------------------------------------------------------
 
-This AMI has Keras set to use Tensorflow as it's backend
+This AMI has Keras set to use Tensorflow as it's backend.  Keras is compatible with: Python 2.7-3.5
 
 Keras is a minimalist, highly modular neural networks library, written in
 Python and capable of running on top of either TensorFlow or Theano. It was
@@ -202,9 +202,7 @@ Use Keras if you need a deep learning library that:
  * supports arbitrary connectivity schemes (including multi-input and multi-output training).
  * runs seamlessly on CPU and GPU.
 
- Read the documentation at Keras.io.
-
- Keras is compatible with: Python 2.7-3.5.
+Read the documentation at Keras.io.
 
 
 ### Keras Tensorflow Tutorial:
