@@ -202,9 +202,9 @@ Use Keras if you need a deep learning library that:
  * supports arbitrary connectivity schemes (including multi-input and multi-output training).
  * runs seamlessly on CPU and GPU.
 
-Read the documentation at Keras.io.
+  Read the documentation at Keras.io.
 
-Keras is compatible with: Python 2.7-3.5.
+  Keras is compatible with: Python 2.7-3.5.
 
 
 ### Keras Tensorflow Tutorial:
