@@ -1,4 +1,3 @@
-
 Bitfusion Boost Ubuntu 14 Tensorflow AMI Readme
 ==============================================================================
 
@@ -188,7 +187,7 @@ machine learning to create compelling art and music.
 Keras
 -------------------------------------------------------------------------------
 
-This AMI has Keras set to use Tensorflow as it's backend.  Keras is compatible with: Python 2.7-3.5
+This AMI has Keras set to use Tensorflow as it's backend
 
 Keras is a minimalist, highly modular neural networks library, written in
 Python and capable of running on top of either TensorFlow or Theano. It was
@@ -202,7 +201,9 @@ Use Keras if you need a deep learning library that:
  * supports arbitrary connectivity schemes (including multi-input and multi-output training).
  * runs seamlessly on CPU and GPU.
 
-Read the documentation at Keras.io.
+  Read the documentation at Keras.io.
+
+  Keras is compatible with: Python 2.7-3.5.
 
 
 #### Keras Tensorflow Tutorial:
@@ -235,44 +236,31 @@ Version History
 -------------------------------------------------------------------------------
 
 
-
 v0.03
 
 
  * Added Jupyter Python 3 kernel
-
  * Added Python 3 libraries for Tensorflow, keras, sklearn
-
  * Added Tensorflow Magenta
-
 
 
 v0.02
 
 
  * Added Keras python library
-
  * Added Tensorflow Magenta
-
  * Upgrade to cudnn 5
-
  * Upgrade to the latest version of boost 0.1.0+1518
-
  * Upgrade to the latest version of Tensorflow (0.9)
-
 
 
 v0.01
 
 
  * Nvidia Driver Version 352
-
  * Cuda Toolkit Version 7.5
-
  * Nvidia cuDNN Version 4
-
  * bfboost 0.1.0+1402
-
 
 
 
