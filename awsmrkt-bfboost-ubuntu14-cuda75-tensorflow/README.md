@@ -1,3 +1,4 @@
+
 Bitfusion Boost Ubuntu 14 Tensorflow AMI Readme
 ==============================================================================
 
@@ -230,8 +231,6 @@ i2.xlarge	i2.2xlarge	i2.4xlarge	i2.8xlarge
 d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
 g2.2xlarge	g2.8xlarge
 ```
-
-
 
 
 Version History
