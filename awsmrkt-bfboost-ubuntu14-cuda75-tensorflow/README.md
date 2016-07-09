@@ -237,21 +237,43 @@ Version History
 -------------------------------------------------------------------------------
 
 
+v0.03
+
+
+    * Added Jupyter Python 3 kernel
+
+    * Added Python 3 libraries for Tensorflow, keras, sklearn
+
+    * Added Tensorflow Magenta
+
+
+
 v0.02
 
-* Added Keras python library
-Added Tensorflow Magenta
-Upgrade to cudnn 5
-Upgrade to the latest version of boost 0.1.0+1518
-Upgrade to the latest version of Tensorflow (0.9)
+
+    * Added Keras python library
+
+    * Added Tensorflow Magenta
+
+    * Upgrade to cudnn 5
+
+    * Upgrade to the latest version of boost 0.1.0+1518
+
+    * Upgrade to the latest version of Tensorflow (0.9)
+
 
 
 v0.01
 
-* Nvidia Driver Version:  352
-Cuda Toolkit Version:   7.5
-Nvidia cuDNN Version:   4
-bfboost:                0.1.0+1402
+
+    * Nvidia Driver Version 352
+
+    * Cuda Toolkit Version 7.5
+
+    * Nvidia cuDNN Version 4
+
+    * bfboost 0.1.0+1402
+
 
 
 
