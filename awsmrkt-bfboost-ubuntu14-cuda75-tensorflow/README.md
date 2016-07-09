@@ -264,15 +264,10 @@ v0.02
 
 
 v0.01
-
-
-    * Nvidia Driver Version 352
-
-    * Cuda Toolkit Version 7.5
-
-    * Nvidia cuDNN Version 4
-
-    * bfboost 0.1.0+1402
+ * Nvidia Driver Version 352
+ * Cuda Toolkit Version 7.5
+ * Nvidia cuDNN Version 4
+ * bfboost 0.1.0+1402
 
 
 
