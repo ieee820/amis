@@ -240,14 +240,12 @@ Version History
 
 v0.03
 
-
  * Added Jupyter Python 3 kernel
  * Added Python 3 libraries for Tensorflow, keras, sklearn
  * Added Tensorflow Magenta
 
 
 v0.02
-
 
  * Added Keras python library
  * Added Tensorflow Magenta
@@ -257,7 +255,6 @@ v0.02
 
 
 v0.01
-
 
  * Nvidia Driver Version 352
  * Cuda Toolkit Version 7.5
