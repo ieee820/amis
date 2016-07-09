@@ -1,6 +1,6 @@
 
-{{ ami_title }} AMI Readme
-==========================
+Bitfusion Boost Ubuntu 14 Tensorflow AMI Readme
+===============================================
 
 
 To get started, launch an AWS instances using this AMI from the EC2
