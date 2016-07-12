@@ -172,18 +172,6 @@ To view all the GPUs being used run nvidia-smi:
     watch -n0.1 nvidia-smi
 ```
 
-
-TensorFlow Magenta
--------------------------------------------------------------------------------
-
-This AMI also has Tensorflow Magenta bundled with it.  A library that uses
-machine learning to create compelling art and music.
-
- * Github: https://github.com/tensorflow/magenta
- * Blog: http://magenta.tensorflow.org/
-
-
-
 Keras
 -------------------------------------------------------------------------------
 
