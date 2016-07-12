@@ -220,7 +220,7 @@ Keras as a simplified interface to TensorFlow: tutorial, by Francois Chollet
 
 Supported AWS Instances
 -------------------------------------------------------------------------------
-
+```
 t2.medium	t2.large
 m3.medium	m3.large	m3.xlarge	m3.2xlarge
 m4.large	m4.xlarge	m4.2xlarge	m4.4xlarge	m4.10xlarge
@@ -230,7 +230,7 @@ r3.large	r3.xlarge	r3.2xlarge	r3.4xlarge	r3.8xlarge
 i2.xlarge	i2.2xlarge	i2.4xlarge	i2.8xlarge
 d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
 g2.2xlarge	g2.8xlarge
-
+```
 
 
 Version History
