@@ -37,7 +37,6 @@ Use the following command to get the instance ID (Jupyter Notebook Password):
 
 ```
   ec2metadata --instance-id
-
 ```
 
 
