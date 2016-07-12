@@ -26,27 +26,30 @@ Tensorflow scripts you may have.
 Jupyter Notebook - http://{ EC2 Instance Public IP }:8888
 -------------------------------------------------------------------------------
 
-### Logging In
+#### Logging In
 
 You can login to the notebook at:
 
   * http://{EC2 Instance Public IP}:8888
   * The login PASSWORD is set to the Instance ID.
 
-Use the following command to get the instance ID (Jupyter Notebook Password):
+You can get the Instance ID (Jupyter Notebook Password) from the EC2 console by
+clicking on the running instance, or if you are logged in via ssh you can obtain
+it by executing the following command:
 
 ```
   ec2metadata --instance-id
 ```
 
 
-### Updating the HASHED Password:
+#### Updating the HASHED Jupyter Login Password:
 
 **It is highly recommended that you change the Jupyter login password.**
 
-You can update the hashed password using the function notebook.auth.security.passwd():
+When logged in via ssh you can update the hashed password using the function
+notebook.auth.security.passwd():
 
- ```
+```
   ipython
   In [1]: from notebook.auth import passwd
   In [2]: passwd()
@@ -68,16 +71,15 @@ Example:
 To have the new password take effect restart the Jupyter:
 
 ```
-  service ipython-notebook restart
+  sudo service ipython-notebook restart
 ```
 
 
-### Notebook Location
+#### Notebook Location
 
 The default notebook directory is /home/ubuntu/pynb.  This directory is
 required for Jupyter to function.  If it is deleted you will need
 recreate it and ensure it is owned by the ubuntu user.
-
 
 
 TensorFlow
@@ -227,18 +229,17 @@ Version History
 v0.02
 
 * Added Keras python library
-Added Tensorflow Magenta
-Upgrade to cudnn 5
-Upgrade to the latest version of boost 0.1.0+1518
-Upgrade to the latest version of Tensorflow (0.9)
+* Upgrade to cudnn 5
+* Upgrade to the latest version of boost 0.1.0+1518
+* Upgrade to the latest version of Tensorflow (0.9)
 
 
 v0.01
 
 * Nvidia Driver Version:  352
-Cuda Toolkit Version:   7.5
-Nvidia cuDNN Version:   4
-bfboost:                0.1.0+1402
+* Cuda Toolkit Version:   7.5
+* Nvidia cuDNN Version:   4
+* bfboost:                0.1.0+1402
 
 
 
