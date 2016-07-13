@@ -2,6 +2,12 @@
 Bitfusion Boost Ubuntu 14 Tensorflow AMI Readme
 ==============================================================================
 
+AWS Amazon Machine Image
+-------------------------------------------------------------------------------
+
+To get started you can subscribe to and launch the image from here:
+
+  https://aws.amazon.com/marketplace/pp/B01EYKBEQ0/
 
 EC2 Instance Access
 -------------------------------------------------------------------------------
