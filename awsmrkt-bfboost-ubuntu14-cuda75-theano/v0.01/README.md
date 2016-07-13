@@ -134,7 +134,7 @@ This example is taken from: http://deeplearning.net/software/theano/tutorial/add
   numpy.allclose(z.eval({x : 16.3, y : 12.1}), 28.4)
 ```
 
-#### Theano - Verifying the GPU is being used
+#### Theano - Verifying GPU Usage
 
 If you are an AWS G2 EC2 instance we have included a test script to
 confirm that Theano is using the GPU.  The script comes from the Theano
