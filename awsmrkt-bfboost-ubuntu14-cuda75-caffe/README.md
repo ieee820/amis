@@ -2,12 +2,12 @@
 Bitfusion Boost Ubuntu 14 Caffe AMI Readme
 ==============================================================================
 
-AMI
+AWS AMI
 -------------------------------------------------------------------------------
 
-<p align="center">
-<a href="http://https://aws.amazon.com/marketplace/pp/B01B52CMSO">Launch the AMI</a>
-</p>
+Subscribe to and launch the AMI from here:
+
+  [Launch the AMI](http://https://aws.amazon.com/marketplace/pp/B01B52CMSO")
 
 EC2 Instance Access
 -------------------------------------------------------------------------------
