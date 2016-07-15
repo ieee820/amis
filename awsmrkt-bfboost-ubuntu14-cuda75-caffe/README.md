@@ -6,9 +6,7 @@ AMI
 -------------------------------------------------------------------------------
 
 <p align="center">
-
-[Launch the AMI](https://aws.amazon.com/marketplace/pp/B01B52CMSO)
-
+<a href="http://https://aws.amazon.com/marketplace/pp/B01B52CMSO">Launch the AMI</a>
 </p>
 
 EC2 Instance Access
