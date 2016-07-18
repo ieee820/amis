@@ -1,6 +1,13 @@
 
-Bitfusion Boost Ubuntu 14 Tensorflow AMI Readme
+Bitfusion Ubuntu 14 Tensorflow AMI Readme
 ==============================================================================
+
+Getting started - Launch the AMI
+-------------------------------------------------------------------------------
+
+Subscribe to and launch the AMI from here:
+
+[Launch the AMI](https://aws.amazon.com/marketplace/pp/B01EYKBEQ0)
 
 
 EC2 Instance Access
@@ -232,6 +239,7 @@ r3.large	r3.xlarge	r3.2xlarge	r3.4xlarge	r3.8xlarge
 i2.xlarge	i2.2xlarge	i2.4xlarge	i2.8xlarge
 d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
 g2.2xlarge	g2.8xlarge
+x1.32xlarge
 ```
 
 Version History
@@ -268,4 +276,4 @@ v0.01
 Support
 -------------------------------------------------------------------------------
 
-Please send all comments and support request to support@bitfusion.iouest to support@bitfusion.io
+Please send all comments and support request to support@bitfusion.io
