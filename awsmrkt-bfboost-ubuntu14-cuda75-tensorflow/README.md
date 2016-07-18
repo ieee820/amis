@@ -18,11 +18,6 @@ Accessing the instance via SSH:
 ssh -i <path to your pem file> ubuntu@{ EC2 Instance Public IP }
 ```
 
-Once you have logged in into the instance you are instantly ready to launch any
-Tensorflow scripts you may have.
-
-
-
 Jupyter Notebook - http://{ EC2 Instance Public IP }:8888
 -------------------------------------------------------------------------------
 
@@ -33,21 +28,23 @@ You can login to the notebook at:
   * http://{EC2 Instance Public IP}:8888
   * The login PASSWORD is set to the Instance ID.
 
-Use the following command to get the instance ID (Jupyter Notebook Password):
+You can get the Instance ID (Jupyter Notebook Password) from the EC2 console by
+clicking on the running instance, or if you are logged in via ssh you can obtain
+it by executing the following command:
 
 ```
   ec2metadata --instance-id
-
 ```
 
 
-#### Updating the HASHED Password:
+#### Updating the HASHED Jupyter Login Password:
 
 **It is highly recommended that you change the Jupyter login password.**
 
-You can update the hashed password using the function notebook.auth.security.passwd():
+When logged in via ssh you can update the hashed password using the function
+notebook.auth.security.passwd():
 
- ```
+```
   ipython
   In [1]: from notebook.auth import passwd
   In [2]: passwd()
@@ -69,7 +66,7 @@ Example:
 To have the new password take effect restart the Jupyter:
 
 ```
-  service ipython-notebook restart
+  sudo service ipython-notebook restart
 ```
 
 
@@ -78,8 +75,6 @@ To have the new password take effect restart the Jupyter:
 The default notebook directory is /home/ubuntu/pynb.  This directory is
 required for Jupyter to function.  If it is deleted you will need
 recreate it and ensure it is owned by the ubuntu user.
-
-
 
 TensorFlow
 -------------------------------------------------------------------------------
@@ -93,6 +88,14 @@ priority when the operation is assigned to a device. For example, matmul has
 both CPU and GPU kernels. On a system with devices cpu:0 and gpu:0, gpu:0 will
 be selected to run matmul.
 
+When you run this AMI on a non-GPU instance you may see the following erros and
+warning when running TensorFlow. These can be safely ignored, they simply indicate
+that no GPU device was found on the system:
+```
+  E tensorflow/stream_executor/cuda/cuda_driver.cc:491] failed call to cuInit: CUDA_ERROR_NO_DEVICE
+  I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:140] kernel driver does not appear to be running on this host (ip-###-##-##-###): /proc/driver/nvidia/version does not exist
+  I tensorflow/core/common_runtime/gpu/gpu_init.cc:81] No GPU devices available on machine.
+```
 
 #### TensorFlow Notebook Tutorials
 
@@ -112,6 +115,9 @@ Github README can be found at:
 
 
 #### Tensorflow CLI Examples
+
+The TensorFlow examples can be executed either using python to use python 2 or
+using the python3 command to utilize python 3.
 
 ##### Example 1: Import Python Module
 
@@ -183,12 +189,11 @@ machine learning to create compelling art and music.
  * Github: https://github.com/tensorflow/magenta
  * Blog: http://magenta.tensorflow.org/
 
-
-
 Keras
 -------------------------------------------------------------------------------
 
-This AMI has Keras set to use Tensorflow as it's backend
+This AMI has Keras set to use Tensorflow as it's backend.   Keras is compatible
+with Python 2.7 to 3.5.
 
 Keras is a minimalist, highly modular neural networks library, written in
 Python and capable of running on top of either TensorFlow or Theano. It was
@@ -202,9 +207,8 @@ Use Keras if you need a deep learning library that:
  * supports arbitrary connectivity schemes (including multi-input and multi-output training).
  * runs seamlessly on CPU and GPU.
 
-  Read the documentation at Keras.io.
+You can read the documentation at http://keras.io/
 
-  Keras is compatible with: Python 2.7-3.5.
 
 
 #### Keras Tensorflow Tutorial:
@@ -213,15 +217,13 @@ Keras as a simplified interface to TensorFlow: tutorial, by Francois Chollet
 
   A complete guide to using Keras as part of a TensorFlow workflow:
 
-    http://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html
-
-
+    http://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.htmlnds-to-keras
 
 
 Supported AWS Instances
 -------------------------------------------------------------------------------
 ```
-t2.medium	t2.large
+t2.nano     t2.micro    t2.medium   t2.large
 m3.medium	m3.large	m3.xlarge	m3.2xlarge
 m4.large	m4.xlarge	m4.2xlarge	m4.4xlarge	m4.10xlarge
 c3.large	c3.xlarge	c3.2xlarge	c3.4xlarge	c3.8xlarge
@@ -232,16 +234,16 @@ d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
 g2.2xlarge	g2.8xlarge
 ```
 
-
 Version History
 -------------------------------------------------------------------------------
 
 
 v0.03
 
+ * Added Python 3 libraries for Tensorflow, Keras, Scikit-learn
  * Added Jupyter Python 3 kernel
- * Added Python 3 libraries for Tensorflow, keras, sklearn
  * Added Tensorflow Magenta
+ * Updated scikit-learn
 
 
 v0.02
@@ -266,4 +268,4 @@ v0.01
 Support
 -------------------------------------------------------------------------------
 
-Please send all comments and support request to support@bitfusion.io
+Please send all comments and support request to support@bitfusion.iouest to support@bitfusion.io
