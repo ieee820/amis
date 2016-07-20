@@ -2,6 +2,13 @@
 Bitfusion Ubuntu 14 Torch AMI Readme
 ==============================================================================
 
+Getting started - Launch the AMI
+-------------------------------------------------------------------------------
+
+Subscribe to and launch the AMI from here:
+
+[Launch the AMI](https://aws.amazon.com/marketplace/pp/B01B4ZSX5S)
+
 
 EC2 Instance Access
 -------------------------------------------------------------------------------
@@ -87,20 +94,15 @@ We have pre-installed Torch examples in the following folder:
 
 #### Example 1: CPU
 ```
-  th /opt/torch/demos/profiling/linear-cpu.lua
-```
-
-#### Example 2: CPU
-```
   th /opt/torch/demos/profiling/conv-cpu.lua
 ```
 
-#### Example 3: GPU example with cutorch/cunn
+#### Example 2: GPU example with cutorch/cunn
 ```
   th /opt/torch/demos/profiling/linear-gpu.lua
 ```
 
-#### Example 4: GPU example using cuDNN
+#### Example 3: GPU example using cuDNN
 ```
   th ./cudnn.torch/test/test.lua
 ```
@@ -155,22 +157,23 @@ Supported AWS Instances
 -------------------------------------------------------------------------------
 
 ```
-t2.medium	t2.large
-m3.medium	m3.large	m3.xlarge	m3.2xlarge
-m4.large	m4.xlarge	m4.2xlarge	m4.4xlarge	m4.10xlarge
-c3.large	c3.xlarge	c3.2xlarge	c3.4xlarge	c3.8xlarge
-c4.large	c4.xlarge	c4.2xlarge	c4.4xlarge	c4.8xlarge
-r3.large	r3.xlarge	r3.2xlarge	r3.4xlarge	r3.8xlarge
-i2.xlarge	i2.2xlarge	i2.4xlarge	i2.8xlarge
-d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
-g2.2xlarge	g2.8xlarge
+t2.nano      t2.micro      t2.medium     t2.large
+m3.medium    m3.large      m3.xlarge     m3.2xlarge
+m4.large     m4.xlarge     m4.2xlarge    m4.4xlarge    m4.10xlarge
+c3.large     c3.xlarge     c3.2xlarge    c3.4xlarge    c3.8xlarge
+c4.large     c4.xlarge     c4.2xlarge    c4.4xlarge    c4.8xlarge
+r3.large     r3.xlarge     r3.2xlarge    r3.4xlarge    r3.8xlarge
+i2.xlarge    i2.2xlarge    i2.4xlarge    i2.8xlarge
+d2.xlarge    d2.2xlarge    d2.4xlarge    d2.8xlarge
+g2.2xlarge   g2.8xlarge
+x1.32xlarge
 ```
 
 Version History
 -------------------------------------------------------------------------------
 
 
-v0.06
+v2016.6
 
  * Upgrade to cudnn 5
  * Upgrade to nvidia driver 352
@@ -216,4 +219,4 @@ v0.01
 Support
 -------------------------------------------------------------------------------
 
-Please send all comments and support request to support@bitfusion.iouest to support@bitfusion.io
+Please send all comments and support request to support@bitfusion.io
