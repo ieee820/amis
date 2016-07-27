@@ -246,9 +246,17 @@ Version History
 -------------------------------------------------------------------------------
 
 
+v2016.04
+
+ * Python 3 matplotlib library added
+ * Set Jupyter notebook default kernel to py2 to support udacity notebooks
+ * New versioning
+ * Disable warning in jupyter notebook
+
+
 v0.03
 
- * Added Python 3 libraries for Tensorflow, Keras, Scikit-learn
+ * Added Python 3 libraries for Tensorflow, Keras (1.0.5), Scikit-learn
  * Added Jupyter Python 3 kernel
  * Added Tensorflow Magenta
  * Updated scikit-learn
