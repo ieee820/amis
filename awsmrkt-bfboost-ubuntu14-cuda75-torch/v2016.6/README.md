@@ -173,7 +173,7 @@ Version History
 -------------------------------------------------------------------------------
 
 
-v0.06
+v2016.6
 
  * Upgrade to cudnn 5
  * Upgrade to nvidia driver 352
