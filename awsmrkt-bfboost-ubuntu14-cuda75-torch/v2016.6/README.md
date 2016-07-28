@@ -87,10 +87,12 @@ recreate it and ensure it is owned by the ubuntu user.
 Local Torch CPU & GPU Examples
 -------------------------------------------------------------------------------
 
-We have pre-installed Torch examples in the following folder:
+#### Example Data & Tests
 
-  /opt/torch/demos (https://github.com/torch/demos.git)
-  /home/ubuntu/cudnn.torch/test/ (https://github.com/soumith/cudnn.torch.git)
+We have pre-installed Torch examples & demos in the following folders:
+
+ * /opt/torch/demos (https://github.com/torch/demos.git)
+ * /home/ubuntu/cudnn.torch/test/ (https://github.com/soumith/cudnn.torch.git)
 
 #### Example 1: CPU
 ```
@@ -107,7 +109,7 @@ We have pre-installed Torch examples in the following folder:
   th ./cudnn.torch/test/test.lua
 ```
 
-Boost GPU Cluster Cuda Example: deviceQuery
+Bitfusion Boost Torch GPU Cluster
 -------------------------------------------------------------------------------
 
 To start this AMI in a Boost Cluster formation select one of the cluster
@@ -132,14 +134,12 @@ Detailed Boost and Boost Cluster documentaion is available at:
 
  * http://www.bitfusion.io/documentation-boost-aws/
 
+#### Example Data & Tests
 
-Remote Torch GPU Examples with Bitfusion Boost Server
--------------------------------------------------------------------------------
+We have pre-installed Torch examples & demos in the following folders:
 
-We have pre-installed Torch examples in the following folder:
-
-  /opt/torch/demos (https://github.com/torch/demos.git)
-  /opt/torch/fficudnn (https://github.com/soumith/cudnn.torch.git)
+ * /opt/torch/demos (https://github.com/torch/demos.git)
+ * /home/ubuntu/cudnn.torch/test/ (https://github.com/soumith/cudnn.torch.git)
 
 #### Example 1: GPU example with cutorch/cunn
 
@@ -173,7 +173,7 @@ Version History
 -------------------------------------------------------------------------------
 
 
-v2016.6
+v0.06
 
  * Upgrade to cudnn 5
  * Upgrade to nvidia driver 352
