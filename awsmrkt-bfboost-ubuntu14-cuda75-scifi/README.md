@@ -1,5 +1,30 @@
-Bitfusion Ubuntu 14 Scientific Computing AMI Readme
+Bitfusion Ubuntu 14 Scientific Computing AMI
 ==============================================================================
+
+
+#### Intro
+
+This AMI is built primarly to support the scientific computing ecosystem
+(Mathematics, science and engineering). Python 2 and Python 3 are both available,
+**but key modules are currently in place for Python 2 only**.  Aside from the
+python environment we have installed other popular tools:
+
+  * Julia
+  * Octave
+  * R
+  * R Studion Server (Web based IDE for R)
+  * Jupyter with the following kernels:
+    * Julia
+    * Octave
+    * R
+    * Python 2
+    * Python 3
+
+#### Scientific Computing Tutorials:
+
+  * https://web.stanford.edu/~arbenson/cme193.html
+  * http://www.scipy-lectures.org/
+
 
 Getting started - Launch the AMI
 -------------------------------------------------------------------------------
@@ -96,29 +121,28 @@ following command:
 ```
 $ update-alternatives --config libblas.so.3
 
-There are 4 choices for the alternative libblas.so.3 (providing /usr/lib/libblas.so.3).
+There are 3 choices for the alternative libblas.so.3 (providing /usr/lib/libblas.so.3).
 
-  Selection    Path                                     Priority   Status
+  Selection    Path                                 Priority   Status
 ------------------------------------------------------------
-* 0            /opt/openblas/lib/libopenblas.so.0        50        auto mode
-  1            /opt/openblas/lib/libopenblas.so.0        50        manual mode
-  2            /usr/lib/atlas-base/atlas/libblas.so.3    35        manual mode
-  3            /usr/lib/libblas/libblas.so.3             10        manual mode
-  4            /usr/lib/openblas-base/libopenblas.so.0   40        manual mode
+* 0            /opt/openblas/lib/libopenblas.so.0    50        auto mode
+  1            /opt/openblas/lib/libopenblas.so.0    50        manual mode
+  2            /usr/lib/libblas/libblas.so.3         10        manual mode
+  3            /usr/lib/openblas-base/libblas.so.3   40        manual mode
 
 Press enter to keep the current choice[*], or type selection number:
 ```
 
 
 
-R and RStudio - http://{ EC2 Instance Public IP }:8787
+R and RStudio Server - http://{ EC2 Instance Public IP }:8787
 -------------------------------------------------------------------------------
 
 #### Logging In To R Studio Server
 
-You can access R Studio Server with the following:
+You can access R Studio Server at http://{EC2 Instance Public IP}:8787 with
+the following:
 
-  * http://{EC2 Instance Public IP}:8787
   * Username: ubuntu
   * The login PASSWORD is set to the Instance ID.
 
@@ -161,81 +185,12 @@ Example below:
 wget http://r.research.att.com/benchmarks/R-benchmark-25.R
 ```
 
-##### Openblas (Bitfusion compiled)
-
-```
-cat R-benchmark-25.R | time R --slave
-```
-
-Output:
-```
-Loading required package: Matrix
-Loading required package: SuppDists
-Warning message:
-In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
-  there is no package called ‘SuppDists’
-Warning messages:
-1: In remove("a", "b") : object 'a' not found
-2: In remove("a", "b") : object 'b' not found
-
-
-   R Benchmark 2.5
-   ===============
-Number of times each test is run__________________________:  3
-
-   I. Matrix calculation
-   ---------------------
-Creation, transp., deformation of a 2500x2500 matrix (sec):  0.83
-2400x2400 normal distributed random matrix ^1000____ (sec):  0.689666666666667
-Sorting of 7,000,000 random values__________________ (sec):  0.869666666666667
-2800x2800 cross-product matrix (b = a' * a)_________ (sec):  0.734000000000001
-Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  0.409
-                      --------------------------------------------
-                 Trimmed geom. mean (2 extremes eliminated):  0.748981566820251
-
-   II. Matrix functions
-   --------------------
-FFT over 2,400,000 random values____________________ (sec):  0.271666666666667
-Eigenvalues of a 640x640 random matrix______________ (sec):  2.52433333333333
-Determinant of a 2500x2500 random matrix____________ (sec):  0.407333333333334
-Cholesky decomposition of a 3000x3000 matrix________ (sec):  0.411333333333334
-Inverse of a 1600x1600 random matrix________________ (sec):  0.38
-                      --------------------------------------------
-                Trimmed geom. mean (2 extremes eliminated):  0.399309047890929
-
-   III. Programmation
-   ------------------
-3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.680333333333335
-Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.275333333333331
-Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.424666666666669
-Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.389333333333335
-Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.338999999999999
-                      --------------------------------------------
-                Trimmed geom. mean (2 extremes eliminated):  0.382698259008479
-
-
-Total time for all 15 tests_________________________ (sec):  9.63566666666667
-Overall mean (sum of I, II and III trimmed means/3)_ (sec):  0.485525736392257
-                      --- End of test ---
-
-62.53user 10.94system 0:55.07elapsed 133%CPU (0avgtext+0avgdata 451160maxresident)k
-4376inputs+0outputs (17major+99018minor)pagefaults 0swaps
-```
-
-##### Libblas3
+##### Using Libblas3
 
 Swith the active BLAS library to libblas (pick option 2):
 
 ```
 sudo update-alternatives --config libblas.so.3
-There are 3 choices for the alternative libblas.so.3 (providing /usr/lib/libblas.so.3).
-
-  Selection    Path                                 Priority   Status
-------------------------------------------------------------
-  0            /opt/openblas/lib/libopenblas.so.0    50        auto mode
-  1            /opt/openblas/lib/libopenblas.so.0    50        manual mode
-* 2            /usr/lib/libblas/libblas.so.3         10        manual mode
-  3            /usr/lib/openblas-base/libblas.so.3   40        manual mode
 ```
 
 Run the benchmark:
@@ -247,62 +202,130 @@ cat R-benchmark-25.R | time R --slave
 Output:
 
 ```
-Loading required package: Matrix
-Loading required package: SuppDists
-Warning message:
-In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
-  there is no package called ‘SuppDists’
-Warning messages:
-1: In remove("a", "b") : object 'a' not found
-2: In remove("a", "b") : object 'b' not found
+    Loading required package: Matrix
+    Loading required package: SuppDists
+    Warning message:
+    In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+      there is no package called ‘SuppDists’
+    Warning messages:
+    1: In remove("a", "b") : object 'a' not found
+    2: In remove("a", "b") : object 'b' not found
 
 
-   R Benchmark 2.5
-   ===============
-Number of times each test is run__________________________:  3
+       R Benchmark 2.5
+       ===============
+    Number of times each test is run__________________________:  3
 
-   I. Matrix calculation
-   ---------------------
-Creation, transp., deformation of a 2500x2500 matrix (sec):  0.826666666666667
-2400x2400 normal distributed random matrix ^1000____ (sec):  0.689333333333333
-Sorting of 7,000,000 random values__________________ (sec):  0.870666666666667
-2800x2800 cross-product matrix (b = a' * a)_________ (sec):  12.5423333333333
-Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  6.039
-                      --------------------------------------------
-                 Trimmed geom. mean (2 extremes eliminated):  1.63198360389782
+       I. Matrix calculation
+       ---------------------
+    Creation, transp., deformation of a 2500x2500 matrix (sec):  0.826666666666667
+    2400x2400 normal distributed random matrix ^1000____ (sec):  0.689333333333333
+    Sorting of 7,000,000 random values__________________ (sec):  0.870666666666667
+    2800x2800 cross-product matrix (b = a' * a)_________ (sec):  12.5423333333333
+    Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  6.039
+                          --------------------------------------------
+                     Trimmed geom. mean (2 extremes eliminated):  1.63198360389782
 
-   II. Matrix functions
-   --------------------
-FFT over 2,400,000 random values____________________ (sec):  0.255666666666665
-Eigenvalues of a 640x640 random matrix______________ (sec):  0.932666666666667
-Determinant of a 2500x2500 random matrix____________ (sec):  4.04033333333334
-Cholesky decomposition of a 3000x3000 matrix________ (sec):  5.06866666666667
-Inverse of a 1600x1600 random matrix________________ (sec):  3.09833333333334
-                      --------------------------------------------
-                Trimmed geom. mean (2 extremes eliminated):  2.26859653167043
+       II. Matrix functions
+       --------------------
+    FFT over 2,400,000 random values____________________ (sec):  0.255666666666665
+    Eigenvalues of a 640x640 random matrix______________ (sec):  0.932666666666667
+    Determinant of a 2500x2500 random matrix____________ (sec):  4.04033333333334
+    Cholesky decomposition of a 3000x3000 matrix________ (sec):  5.06866666666667
+    Inverse of a 1600x1600 random matrix________________ (sec):  3.09833333333334
+                          --------------------------------------------
+                    Trimmed geom. mean (2 extremes eliminated):  2.26859653167043
 
-   III. Programmation
-   ------------------
-3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.680333333333332
-Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.26800000000001
-Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.442333333333342
-Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.404666666666676
-Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.456999999999994
-                      --------------------------------------------
-                Trimmed geom. mean (2 extremes eliminated):  0.434097981814902
+       III. Programmation
+       ------------------
+    3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.680333333333332
+    Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.26800000000001
+    Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.442333333333342
+    Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.404666666666676
+    Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.456999999999994
+                          --------------------------------------------
+                    Trimmed geom. mean (2 extremes eliminated):  0.434097981814902
 
 
-Total time for all 15 tests_________________________ (sec):  36.616
-Overall mean (sum of I, II and III trimmed means/3)_ (sec):  1.17135069772039
-                      --- End of test ---
+    Total time for all 15 tests_________________________ (sec):  36.616
+    Overall mean (sum of I, II and III trimmed means/3)_ (sec):  1.17135069772039
+                          --- End of test ---
 
-177.83user 0.83system 2:58.90elapsed 99%CPU (0avgtext+0avgdata 438428maxresident)k
-1680inputs+0outputs (9major+97155minor)pagefaults 0swaps
+    177.83user 0.83system 2:58.90elapsed 99%CPU (0avgtext+0avgdata 438428maxresident)k
+    1680inputs+0outputs (9major+97155minor)pagefaults 0swaps
 ```
+
+##### Using Openblas (Bitfusion compiled)
+
+Swith the active back to using Openblas (pick option 0):
+
+```
+sudo update-alternatives --config libblas.so.3
+```
+
+```
+cat R-benchmark-25.R | time R --slave
+```
+
+Output:
+```
+    Loading required package: Matrix
+    Loading required package: SuppDists
+    Warning message:
+    In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+      there is no package called ‘SuppDists’
+    Warning messages:
+    1: In remove("a", "b") : object 'a' not found
+    2: In remove("a", "b") : object 'b' not found
+
+
+       R Benchmark 2.5
+       ===============
+    Number of times each test is run__________________________:  3
+
+       I. Matrix calculation
+       ---------------------
+    Creation, transp., deformation of a 2500x2500 matrix (sec):  0.83
+    2400x2400 normal distributed random matrix ^1000____ (sec):  0.689666666666667
+    Sorting of 7,000,000 random values__________________ (sec):  0.869666666666667
+    2800x2800 cross-product matrix (b = a' * a)_________ (sec):  0.734000000000001
+    Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  0.409
+                          --------------------------------------------
+                     Trimmed geom. mean (2 extremes eliminated):  0.748981566820251
+
+       II. Matrix functions
+       --------------------
+    FFT over 2,400,000 random values____________________ (sec):  0.271666666666667
+    Eigenvalues of a 640x640 random matrix______________ (sec):  2.52433333333333
+    Determinant of a 2500x2500 random matrix____________ (sec):  0.407333333333334
+    Cholesky decomposition of a 3000x3000 matrix________ (sec):  0.411333333333334
+    Inverse of a 1600x1600 random matrix________________ (sec):  0.38
+                          --------------------------------------------
+                    Trimmed geom. mean (2 extremes eliminated):  0.399309047890929
+
+       III. Programmation
+       ------------------
+    3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.680333333333335
+    Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.275333333333331
+    Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.424666666666669
+    Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.389333333333335
+    Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.338999999999999
+                          --------------------------------------------
+                    Trimmed geom. mean (2 extremes eliminated):  0.382698259008479
+
+
+    Total time for all 15 tests_________________________ (sec):  9.63566666666667
+    Overall mean (sum of I, II and III trimmed means/3)_ (sec):  0.485525736392257
+                          --- End of test ---
+
+    62.53user 10.94system 0:55.07elapsed 133%CPU (0avgtext+0avgdata 451160maxresident)k
+    4376inputs+0outputs (17major+99018minor)pagefaults 0swaps
+```
+
 
 ##### Results
 
-Using lib-openblas shows signifgent improvements due to it's ability to use multiple
+Using OpenBlas shows signifgent improvements due to it's ability to use multiple
 cores:
 
 Timings Results (shorter is better):
@@ -313,7 +336,7 @@ Timings Results (shorter is better):
 ```
 
 
-Openblas & OpenBLAS Benchmarks
+Octave & OpenBLAS Benchmarks
 -------------------------------------------------------------------------------
 
 #### Octave Script
@@ -384,7 +407,7 @@ Elapsed time is 2.16559 seconds.
 
 #### Octave Benchmark Results
 
-Timings Results:
+Timings Results (lower is better):
 
 ```
   libopenblas  2.17s
@@ -425,6 +448,7 @@ v2016.01
  * Jupyter 4.1.0 (with R, Octave, Julia, Py2 and Py3 Kernels)
  * Numpy 1.11.1
  * SciPy 0.18.0
+ * SciKit-learn 0.17.1
  * Pandas 0.18.1
  * sympy 1.0
  * matplotlib 1.5.1
