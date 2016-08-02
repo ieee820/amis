@@ -151,7 +151,7 @@ Example below:
   Enter new UNIX password:
   Retype new UNIX password:
   passwd: password updated successfully
- ```
+```
 
 #### R & BLAS Benchmarks
 
@@ -236,7 +236,7 @@ There are 3 choices for the alternative libblas.so.3 (providing /usr/lib/libblas
   1            /opt/openblas/lib/libopenblas.so.0    50        manual mode
 * 2            /usr/lib/libblas/libblas.so.3         10        manual mode
   3            /usr/lib/openblas-base/libblas.so.3   40        manual mode
-``
+```
 
 Run the benchmark:
 
@@ -346,11 +346,13 @@ disp(gFlops);
 #### libblas3 (Default for Octave)
 
 Switch to libblas3 (pick option 2):
+
 ```
 sudo update-alternatives --config libblas.so.3
 ```
 
 Run the benchmark script:
+
 ```
 time /usr/bin/octave -qf octave_benchmark.m
 /usr/bin/octave -qf octave_example.m
@@ -359,7 +361,6 @@ octave: disabling GUI features
 Elapsed time is 54.1769 seconds.
  53.344
  2.6987
-
 ```
 
 ### openblas (Bitfusion compiled)
