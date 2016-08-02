@@ -2,13 +2,19 @@ Bitfusion Ubuntu 14 Scientific Computing AMI
 ==============================================================================
 
 
-#### Intro
+### Intro
 
-This AMI is built primarly to support the scientific computing ecosystem
-(Mathematics, science and engineering). Python 2 and Python 3 are both available,
-**but key modules are currently in place for Python 2 only**.  Aside from the
-python environment we have installed other popular tools:
+This AMI is built to support the scientific computing ecosystem
+(Mathematics, science and engineering) and comes with the following tools:
 
+  * Python 2  ** SciPy modules are currently in place for Python 2 only **
+    * Numpy 1.11.1
+    * SciPy 0.18.0
+    * SciKit-learn 0.17.1
+    * Pandas 0.18.1
+    * Sympy 1.0
+    * Matplotlib 1.5.1
+  * Python 3
   * Julia
   * Octave
   * R
@@ -20,7 +26,7 @@ python environment we have installed other popular tools:
     * Python 2
     * Python 3
 
-#### Scientific Computing Tutorials:
+### Scientific Computing Tutorials:
 
   * https://web.stanford.edu/~arbenson/cme193.html
   * http://www.scipy-lectures.org/
@@ -439,6 +445,7 @@ x1.32xlarge
 Version History
 -------------------------------------------------------------------------------
 
+
 v2016.01
 
  * R 3.3.1
@@ -452,6 +459,8 @@ v2016.01
  * Pandas 0.18.1
  * sympy 1.0
  * matplotlib 1.5.1
+
+
 
 
 Support
