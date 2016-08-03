@@ -125,7 +125,7 @@ You can see theavailable BlAS libraries and change the default with the
 following command:
 
 ```
-$ update-alternatives --config libblas.so.3
+$ sudo update-alternatives --config libblas.so.3
 
 There are 3 choices for the alternative libblas.so.3 (providing /usr/lib/libblas.so.3).
 
@@ -459,6 +459,7 @@ v2016.01
  * Pandas 0.18.1
  * sympy 1.0
  * matplotlib 1.5.1
+ * OpenBlas 0.2.18
 
 
 
