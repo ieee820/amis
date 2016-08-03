@@ -184,7 +184,7 @@ Press enter to keep the current choice[*], or type selection number:
 
 
 
-##### R Benchmarks
+#### R Benchmarks
 
 Download the R Benchmark
 
@@ -204,8 +204,7 @@ R Benchmark Results: m4.4xlarge (16vCPU: 8 cores - dual threaded)
  Optimized BLAS: 71s
 ```
 
-Octave Benchmarks
--------------------------------------------------------------------------------
+#### Octave Benchmarks
 
 Octave Script - Save it as octave_benchmark.m
 
@@ -240,8 +239,10 @@ octave octave_example.m
 
 Octave Benchmark Results: m4.4xlarge (16vCPU: 8 cores - dual threaded)
 
-Default BLAS:						52 GFLOPS
-Optimized BLAS:			332 GFLOPS
+```
+   Default BLAS: 52 GFLOPS
+ Optimized BLAS: 332 GFLOPS
+```
 
 Scientific Computing Tutorials:
 -------------------------------------------------------------------------------
