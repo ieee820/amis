@@ -159,8 +159,8 @@ default BLAS library for a number of the installed applications for optimal
 performance. To change the default BLAS library please follow the directoions
 below.
 
-The library has support for dynamic architectures and running processes with up
-to 128 threads.
+The library has support for dynamic architectures and support for up to 128
+threads.
 
 #### Changing the default BLAS library
 
