@@ -35,6 +35,7 @@ Accessing the instance via SSH:
 ```
 ssh -i <path to your pem file> ubuntu@{ EC2 Instance Public IP }
 ```
+
 GPU REST ENGINE API
 ===============================================================================
 The AMI leverages NVIDIA's GPU rest engine: https://github.com/NVIDIA/gpu-rest-engine
@@ -321,9 +322,6 @@ nvidia-docker run --name=gpurestengine -p 8005:8000 --rm \
 
 
 
-
-
-
 Supported AWS Instances
 -------------------------------------------------------------------------------
 ```
@@ -332,6 +330,7 @@ g2.2xlarge	g2.8xlarge
 
 Version History
 -------------------------------------------------------------------------------
+
 
 v2106.02
 
@@ -345,6 +344,8 @@ v0.01
  * Cuda Toolkit Version 7.5
  * Nvidia cuDNN Version 4
  * bfboost 0.1.0+1402
+
+
 
 
 Support
