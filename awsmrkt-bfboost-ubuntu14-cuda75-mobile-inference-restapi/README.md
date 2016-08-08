@@ -65,24 +65,22 @@ with a different model.
 ### Example Curl Calls
 
 > Currently the inference api only supports JPG images.  You can easily convert any images from from one format to another
-using ImageMagick or use [Bitfusion's image manipulation service API](https://github.com/bitfusionio/imagemagick_api])
+using ImageMagick or use [Bitfusion's Image Manipulation Service API](https://github.com/bitfusionio/imagemagick_api])
 
 Using a simple curl call we will submit a picture of an Anogra rabbit
 to each of the API services. You can see that the results from each model provides slightly
-different confidence levels and results.  The results have been piped into JQ for readability.
+different confidence levels and results.  The output below have been piped into [JQ](https://jquery.com/) for readability.
 
 #### CaffeNet
 ```
-$ host="EC2 instance IP"
 $ curl \
    --verbose \
   -X POST \
    --data-binary @angorarabbit.jpg \
-   http://${host}:8000/api/classify | jq
+   http://{ EC2 INSTANCE IP }:8000/api/classify
 
 # Concatenated output.....
 
-[
   {
     "confidence": 0.9999,
     "label": "n02328150 Angora, Angora rabbit"
@@ -103,22 +101,18 @@ $ curl \
     "confidence": 0,
     "label": "n02325366 wood rabbit, cottontail, cottontail rabbit"
   }
-]
 ```
 
 #### AlexNet
 ```
-$ host="EC2 instance IP"
 $ curl \
    --verbose \
   -X POST \
    --data-binary @angorarabbit.jpg \
-   http://${host}:8001/api/classify | jq
+   http://{ EC2 INSTANCE IP }:8001/api/classify
 
 # Concatenated output.....
 
-
-[
   {
     "confidence": 0.9993,
     "label": "n02328150 Angora, Angora rabbit"
@@ -139,22 +133,20 @@ $ curl \
     "confidence": 0,
     "label": "n02325366 wood rabbit, cottontail, cottontail rabbit"
   }
-]
+
 
 ```
 
 #### GoogleNet
 ```
-$ host="EC2 instance IP"
 $ curl \
    --verbose \
   -X POST \
    --data-binary @angorarabbit.jpg \
-   http://${host}:8002/api/classify | jq
+   http://{ EC2 INSTANCE IP }:8002/api/classify
 
 # Concatenated output.....
 
-[
   {
     "confidence": 1,
     "label": "n02328150 Angora, Angora rabbit"
@@ -175,10 +167,10 @@ $ curl \
     "confidence": 0,
     "label": "n02112018 Pomeranian"
   }
-]
+
 ```
 
-### Stoping and Starting the Service
+### Specifying Containers to be started Automatically
 
 Starting the GPU Rest Engine Workers
 ```
@@ -191,7 +183,7 @@ c16e9edd7dc4        bitfusion/gpurestengine   "inference caffe/mode"   41 hours 
 6eee880622a4        bitfusion/gpurestengine   "inference caffe/mode"   41 hours ago        Up 2 hours          0.0.0.0:8000->8000/tcp   gpurestengine-caffenet
 ```
 
-Stopping the GPU Rest Engine Workers
+### Stoping and Starting the Service Manually
 ```
 $ sudo service gre-workers start
 $ docker ps -a
@@ -203,25 +195,41 @@ c16e9edd7dc4        bitfusion/gpurestengine   "inference caffe/mode"   41 hours 
 ```
 
 
-### Training your own model
+#### Create Your Own Rest Engine Worker Container
 
-You can use this AMI to train your own Caffe model as well. If you have trained
-your own model simply create a container that points to your model collateral.
+##### Create Your Container
 
+You can use this AMI to [train your own Caffe model](#### Training-your-own-model) and [update the container](### Working with-docker-containers) .
 
-#### Create your container
+1. Update /etc/default/gpurestengine with your container & model information.
 
-```
-export IMAGE='bitfusion/gpurestengine'
-CONTAINER_NAME='gpurestengine-custom-model'
-nvidia-docker run --name=${CONTAINER_NAME} -p 8000:8000 -d ${IMAGE} \
+This model information should exist in the GPU container or be referencable via a [mounted host directory](https://docs.docker.com/engine/tutorials/dockervolumes/)
+
+    ```
+    # Container Information
+    IMAGE='bitfusion/gpurestengine'
+    CUSTOM_CONTAINER_NAME='gpurestengine-custom-model' # The name for the container
+    CUSTOM_PORT="8010" # This should be an unused port on the system
+
+    # Your Custom Model Information
+    CUSTOM_DEPLOY_PROTEXT="path/to/custom_deploy.prototxt"
+    CUSTOM_MODEL="path/t0/custom.caffemodel"
+    CUSTOM_MEAN="path/to/custom_imagenet_mean.binaryproto"
+    CUSTOM_SYNSET_WORDS="path/to/custom_synset_words.txt"
+    ```
+
+2. Create the container
+
+  ```
+  . /etc/default/gpurestengine
+  nvidia-docker run --name=${CUSTOM_CONTAINER_NAME} -p {CUSTOM_PORT}:8000 -d ${IMAGE} \
   inference "${CUSTOM_DEPLOY_PROTEXT}" "${CUSTOM_MODEL}" "${CUSTOM_MEAN}" "${CUSTOM_SYNSET_WORDS}"
 
-```
+  ```
 
-#### Add the container name to list of container to be started
+##### Custom Container Startup
 
-  1. Edit /etc/init/gre-workers.conf and append the container name to list of containers to be started
+  1. Edit /etc/init/gre-workers.conf and append the container name to the list of containers to be started
 
   ```
   sudo vim /etc/init/gre-workers.conf
@@ -249,7 +257,7 @@ c16e9edd7dc4        bitfusion/gpurestengine   "inference caffe/mode"   40 hours 
 6eee880622a4        bitfusion/gpurestengine   "inference caffe/mode"   40 hours ago        Up About an hour    0.0.0.0:8000->8000/tcp   gpurestengine-caffenet
 ```
 
-#### Making changes to the container:
+#### Making changes to the container
 
 Let's make a change to the "gpurestengine-caffenet" container:
 
@@ -284,6 +292,12 @@ drwxr-xr-x 5751 root root 204K Jun 22 21:59 lfw-deepfunneled
 root@ip-172-31-67-58:/# exit
 ```
 
+### Training your own model
+
+While you can use thie AMI to train a model, it is mostly designed for quick deployment
+of models for inference tasks. For proper Caffe model training we recommend that you utilize our
+Ubuntu 14 Caffe AMI: https://aws.amazon.com/marketplace/pp/B01B52CMSO
+
 #### Training your own model with imagenet
 
 To train your own model a good place to start is the following tutorial for training a model with imagenet: http://caffe.berkeleyvision.org/gathered/examples/imagenet.html
@@ -306,6 +320,8 @@ nvidia-docker run --name=gpurestengine -p 8005:8000 --rm \
       "caffe/data/ilsvrc12/imagenet_mean.binaryproto" \
       "caffe/data/ilsvrc12/synset_words.txt"
 ```
+
+
 
 
 
