@@ -203,19 +203,19 @@ You can use this AMI to [train your own Caffe model](#### Training-your-own-mode
 
 1. Update /etc/default/gpurestengine with your container & model information.
 
-This model information should exist in the GPU container or be referencable via a [mounted host directory](https://docs.docker.com/engine/tutorials/dockervolumes/)
+  This model information should exist in the GPU container or be referencable via a [mounted host directory](https://docs.docker.com/engine/tutorials/dockervolumes/)
 
-    ```
-    # Container Information
-    IMAGE='bitfusion/gpurestengine'
-    CUSTOM_CONTAINER_NAME='gpurestengine-custom-model' # The name for the container
-    CUSTOM_PORT="8010" # This should be an unused port on the system
+  ```
+  # Container Information
+  IMAGE='bitfusion/gpurestengine'
+  CUSTOM_CONTAINER_NAME='gpurestengine-custom-model' # The name for the container
+  CUSTOM_PORT="8010" # This should be an unused port on the system
 
-    # Your Custom Model Information
-    CUSTOM_DEPLOY_PROTEXT="path/to/custom_deploy.prototxt"
-    CUSTOM_MODEL="path/t0/custom.caffemodel"
-    CUSTOM_MEAN="path/to/custom_imagenet_mean.binaryproto"
-    CUSTOM_SYNSET_WORDS="path/to/custom_synset_words.txt"
+  # Your Custom Model Information
+  CUSTOM_DEPLOY_PROTEXT="path/to/custom_deploy.prototxt"
+  CUSTOM_MODEL="path/t0/custom.caffemodel"
+  CUSTOM_MEAN="path/to/custom_imagenet_mean.binaryproto"
+  CUSTOM_SYNSET_WORDS="path/to/custom_synset_words.txt"
     ```
 
 2. Create the container
