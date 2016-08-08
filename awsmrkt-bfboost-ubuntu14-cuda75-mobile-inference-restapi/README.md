@@ -178,7 +178,16 @@ $ curl \
 ]
 ```
 
-### Stoping and Starting the Service
+### Specifying Containers to be started Automatiically
+
+Containers that are started on boot are specified in the /etc/init/gre-workers.conf file. You can modify this file by adding or removing the container name to the list of containers as follows:
+
+```
+  sudo vim /etc/init/gre-workers.conf
+  env CONTAINERS="gpurestengine-caffenet gpurestengine-alexnet gpurestengine-googlenet gpurestengine-custom-model"
+```
+
+### Stoping and Starting the Service Manually
 
 Starting the GPU Rest Engine Workers
 ```
@@ -203,37 +212,18 @@ c16e9edd7dc4        bitfusion/gpurestengine   "inference caffe/mode"   41 hours 
 ```
 
 
-### Training your own model
+#### Create Your Own Rest Engine Worker Container
 
-You can use this AMI to train your own Caffe model as well. If you have trained
-your own model simply create a container that points to your model collateral.
-
-
-#### Create your container
+write better explanation here
 
 ```
 export IMAGE='bitfusion/gpurestengine'
 CONTAINER_NAME='gpurestengine-custom-model'
-nvidia-docker run --name=${CONTAINER_NAME} -p 8000:8000 -d ${IMAGE} \
+nvidia-docker run --name=${CONTAINER_NAME} -p 8xxx:8000 -d ${IMAGE} \
   inference "${CUSTOM_DEPLOY_PROTEXT}" "${CUSTOM_MODEL}" "${CUSTOM_MEAN}" "${CUSTOM_SYNSET_WORDS}"
 
 ```
 
-#### Add the container name to list of container to be started
-
-  1. Edit /etc/init/gre-workers.conf and append the container name to list of containers to be started
-
-  ```
-  sudo vim /etc/init/gre-workers.conf
-  env CONTAINERS="gpurestengine-caffenet gpurestengine-alexnet gpurestengine-googlenet gpurestengine-custom-model"
-  ```
-
-  2. Restart the gre-workers service
-
-  ```
-  sudo service gre-workers stop
-  sudo service gre-workers start
-  ```
 
 ### Working with docker containers
 
@@ -284,10 +274,15 @@ drwxr-xr-x 5751 root root 204K Jun 22 21:59 lfw-deepfunneled
 root@ip-172-31-67-58:/# exit
 ```
 
+### Training your own model
+
+While you can use thie AMI to train a model as well, it is mostly designed for quick deployment
+of models for inference tasks. For proper Caffe model training we recommend that you utilize our
+Ubuntu 14 Caffe AMI: https://aws.amazon.com/marketplace/pp/B01B52CMSO
+
 #### Training your own model with imagenet
 
 To train your own model a good place to start is the following tutorial for training a model with imagenet: http://caffe.berkeleyvision.org/gathered/examples/imagenet.html
-
 
 #### Training your own model with your own dataset:
 
@@ -306,8 +301,6 @@ nvidia-docker run --name=gpurestengine -p 8005:8000 --rm \
       "caffe/data/ilsvrc12/imagenet_mean.binaryproto" \
       "caffe/data/ilsvrc12/synset_words.txt"
 ```
-
-
 
 Supported AWS Instances
 -------------------------------------------------------------------------------
