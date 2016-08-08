@@ -64,7 +64,8 @@ with a different model.
 
 ### Example Curl Calls
 
-> Currently the inference api only supports JPG images.  You can easily convert any images from from one format to another using ImageMagick or [Bitfusion's image manipulation service API](https://github.com/bitfusionio/imagemagick_api])
+> Currently the inference api only supports JPG images.  You can easily convert any images from from one format to another
+using ImageMagick or use [Bitfusion's image manipulation service API](https://github.com/bitfusionio/imagemagick_api])
 
 Using a simple curl call we will submit a picture of an Anogra rabbit
 to each of the API services. You can see that the results from each model provides slightly
@@ -317,7 +318,6 @@ g2.2xlarge	g2.8xlarge
 Version History
 -------------------------------------------------------------------------------
 
-
 v2106.02
 
  * Bugfix - ensure containers start on reboot
@@ -330,8 +330,6 @@ v0.01
  * Cuda Toolkit Version 7.5
  * Nvidia cuDNN Version 4
  * bfboost 0.1.0+1402
-
-
 
 
 Support
