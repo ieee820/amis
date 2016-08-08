@@ -1,4 +1,4 @@
-
+```
     ###############################################################################
     ##                                                                           ##
     ## Find this AMI useful and think others may as well? Refer a colleague or a ##
@@ -7,6 +7,7 @@
     ##              http://www.bitfusion.io/aws-product-referral/                ##
     ##                                                                           ##
     ###############################################################################
+```
 
 Bitfusion Ubuntu 14 Deep Learning Service AMI
 ==============================================================================
@@ -65,7 +66,7 @@ with a different model.
 
 ** Currently the inference api only supports JPG images.  You can easily
 convert any images from from one format to another using ImageMagick or
-(Bitfusion's image manipulation service API)[https://github.com/bitfusionio/imagemagick_api]**
+[Bitfusion's image manipulation service API](https://github.com/bitfusionio/imagemagick_api]) **
 
 Using a simple curl call we will submit a picture of an Anogra rabbit
 to each of the API services. You can see that the results from each model provides slightly
