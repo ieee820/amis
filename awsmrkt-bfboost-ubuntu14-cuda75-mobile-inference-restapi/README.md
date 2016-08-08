@@ -35,7 +35,6 @@ Accessing the instance via SSH:
 ```
 ssh -i <path to your pem file> ubuntu@{ EC2 Instance Public IP }
 ```
-
 GPU REST ENGINE API
 ===============================================================================
 The AMI leverages NVIDIA's GPU rest engine: https://github.com/NVIDIA/gpu-rest-engine
@@ -69,7 +68,7 @@ using ImageMagick or use [Bitfusion's Image Manipulation Service API](https://gi
 
 Using a simple curl call we will submit a picture of an Anogra rabbit
 to each of the API services. You can see that the results from each model provides slightly
-different confidence levels and results.  The output below have been piped into [JQ](https://jquery.com/) for readability.
+different confidence levels and results.  The output below has been piped into [JQ](https://jquery.com/) for readability.
 
 #### CaffeNet
 ```
@@ -203,7 +202,7 @@ You can use this AMI to [train your own Caffe model](#### Training-your-own-mode
 
 1. Update /etc/default/gpurestengine with your container & model information.
 
-  This model information should exist in the GPU container or be referencable via a [mounted host directory](https://docs.docker.com/engine/tutorials/dockervolumes/)
+  This model information should exist in the GPU container or be referencable via a [docker mounted host directory](https://docs.docker.com/engine/tutorials/dockervolumes/)
 
   ```
   # Container Information
@@ -216,7 +215,7 @@ You can use this AMI to [train your own Caffe model](#### Training-your-own-mode
   CUSTOM_MODEL="path/t0/custom.caffemodel"
   CUSTOM_MEAN="path/to/custom_imagenet_mean.binaryproto"
   CUSTOM_SYNSET_WORDS="path/to/custom_synset_words.txt"
-    ```
+  ```
 
 2. Create the container
 
@@ -224,7 +223,6 @@ You can use this AMI to [train your own Caffe model](#### Training-your-own-mode
   . /etc/default/gpurestengine
   nvidia-docker run --name=${CUSTOM_CONTAINER_NAME} -p {CUSTOM_PORT}:8000 -d ${IMAGE} \
   inference "${CUSTOM_DEPLOY_PROTEXT}" "${CUSTOM_MODEL}" "${CUSTOM_MEAN}" "${CUSTOM_SYNSET_WORDS}"
-
   ```
 
 ##### Custom Container Startup
@@ -296,7 +294,7 @@ root@ip-172-31-67-58:/# exit
 
 While you can use thie AMI to train a model, it is mostly designed for quick deployment
 of models for inference tasks. For proper Caffe model training we recommend that you utilize our
-Ubuntu 14 Caffe AMI: https://aws.amazon.com/marketplace/pp/B01B52CMSO
+[Ubuntu 14 Caffe AMI](https://aws.amazon.com/marketplace/pp/B01B52CMSO)
 
 #### Training your own model with imagenet
 
@@ -320,6 +318,7 @@ nvidia-docker run --name=gpurestengine -p 8005:8000 --rm \
       "caffe/data/ilsvrc12/imagenet_mean.binaryproto" \
       "caffe/data/ilsvrc12/synset_words.txt"
 ```
+
 
 
 
