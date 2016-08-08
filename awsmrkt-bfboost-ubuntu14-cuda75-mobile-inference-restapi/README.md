@@ -63,11 +63,8 @@ with a different model.
  * GoogleNet port 8002
 
 ### Example Curl Calls
-```
-  Currently the inference api only supports JPG images.  You can easily
-  convert any images from from one format to another using ImageMagick or
-  [Bitfusion's image manipulation service API](https://github.com/bitfusionio/imagemagick_api])
-```
+
+** Currently the inference api only supports JPG images.  You can easily convert any images from from one format to another using ImageMagick or [Bitfusion's image manipulation service API](https://github.com/bitfusionio/imagemagick_api]) **
 
 Using a simple curl call we will submit a picture of an Anogra rabbit
 to each of the API services. You can see that the results from each model provides slightly
