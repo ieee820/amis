@@ -140,100 +140,32 @@ If correctly set up, nothing happens. Otherwise the following function raises Ru
 ### Chainer Examples
 
 We have included the chainer examples in:
- 
- ```
- /home/ubuntu/chainer_examples
- ```
+``` 
+/home/ubuntu/chainer_examples
+```
 
 
 #### Example 1 - Training with a CPU:
 
 ```
-  # The command has been prefixed with "time" to
-  # time how long it takes to train
   
   $ cd /home/ubuntu/chainer_examples/mnist
+  $ ./train_mnist.py
   
-  # Training with CPU
-  $ time ./train_mnist.py
-  
-    GPU: -1
-    # unit: 1000
-    # Minibatch-size: 100
-    # epoch: 20
-    
-    epoch       main/loss   validation/main/loss  main/accuracy  validation/main/accuracy
-    1           0.190537    0.0917396             0.943083       0.9717                    
-    2           0.0756759   0.0681339             0.976483       0.979                     
-    3           0.0480199   0.0716059             0.984517       0.977                     
-    4           0.0342781   0.0763192             0.988633       0.9784                    
-    5           0.0287253   0.0838866             0.99055        0.9761                    
-    6           0.0237387   0.073706              0.9925         0.981                     
-    7           0.0191159   0.106185              0.993583       0.9748                    
-    8           0.0221227   0.0846464             0.992683       0.9801                    
-    9           0.0158378   0.0945134             0.9947         0.9789                    
-    10          0.0139317   0.0840632             0.995267       0.9818                    
-    11          0.0157316   0.0852795             0.9952         0.9815                    
-    12          0.00912568  0.113052              0.9971         0.9769                    
-    13          0.0143123   0.0996677             0.99575        0.9805                    
-    14          0.013235    0.0906042             0.996067       0.9836                    
-    15          0.00871427  0.0945784             0.997017       0.9821                    
-    16          0.0102738   0.114404              0.996767       0.9806                    
-    17          0.0109605   0.111701              0.997          0.9812                    
-    18          0.0102326   0.0942914             0.997017       0.9839                    
-    19          0.00697239  0.107474              0.9979         0.982                     
-    20          0.0108159   0.114549              0.997183       0.9819                    
-    
-    real	10m18.761s
-    user	29m39.903s
-    sys	50m26.241s
-
 ```
 
 
 #### Example 2 - Training with a GPU:
 
-This example shows how to train using GPUs and the performance benefits 
-from using GPUs. The example using a GPU took 1 minute and 33 seconds as
-where the CPU example took 10 minutes and 18 seconds
+To highlight the GPU performance gains in our test runs, training with the GPU (g2.2xlarge)
+took only 1 minute and 33 seconds compared to the CPU example above which took
+10 minutes and 18 seconds.
+
 
 ```
   
-  $ cd /home/ubuntu/chainer_examples/mnist 
-   
-  # Training with GPU (G2.2XLARGE)
-  $ time ./train_mnist.py --gpu=0
-  
-    GPU: 0
-    # unit: 1000
-    # Minibatch-size: 100
-    # epoch: 20
-    
-    epoch       main/loss   validation/main/loss  main/accuracy  validation/main/accuracy
-    1           0.195601    0.11153               0.940201       0.9631                    
-    2           0.0733815   0.0896724             0.977049       0.973                     
-    3           0.0479178   0.0927158             0.984466       0.9729                    
-    4           0.0359405   0.0675299             0.988648       0.9803                    
-    5           0.0252756   0.0804972             0.991898       0.979                     
-    6           0.0255609   0.078852              0.991582       0.9798                    
-    7           0.0179999   0.0736867             0.994049       0.9824                    
-    8           0.02208     0.0670069             0.993182       0.9829                    
-    9           0.016171    0.0783937             0.994965       0.9832                    
-    10          0.01442     0.0890438             0.995332       0.9816                    
-    11          0.0140226   0.0847233             0.995415       0.9811                    
-    12          0.00881473  0.106724              0.997132       0.979                     
-    13          0.0152661   0.104856              0.995232       0.9791                    
-    14          0.0122119   0.0983878             0.996099       0.9829                    
-    15          0.0144427   0.105973              0.995815       0.9801                    
-    16          0.00671748  0.0985684             0.997566       0.9824                    
-    17          0.00646931  0.132086              0.997832       0.9773                    
-    18          0.0112794   0.113564              0.996849       0.9809                    
-    19          0.00941462  0.104766              0.997215       0.9834                    
-    20          0.0107395   0.103067              0.996782       0.9835                    
-    
-    real	1m33.237s
-    user	1m31.589s
-    sys	0m2.197s  
+  $ cd /home/ubuntu/chainer_examples/mnist  
+  $ ./train_mnist.py --gpu=0
   
 ```
 
