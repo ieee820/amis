@@ -141,7 +141,9 @@ If correctly set up, nothing happens. Otherwise the following function raises Ru
 
 We have included the chainer examples in:
  
- ```/home/ubuntu/chainer_examples```
+ ```
+ /home/ubuntu/chainer_examples
+ ```
 
 
 #### Example 1 - Training with a CPU:
