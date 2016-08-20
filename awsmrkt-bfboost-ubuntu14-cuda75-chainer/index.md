@@ -7,7 +7,7 @@ Getting started - Launch the AMI
 
 Subscribe to and launch the AMI from here:
 
-[Launch the AMI](http://www.bitfusion.io/boost-machine-images/)
+[Launch the AMI](https://aws.amazon.com/marketplace/pp/B01KKDQD84)
 
 
 EC2 Instance Access
