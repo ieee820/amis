@@ -207,7 +207,9 @@ tensorboard --logdir .
 The service will be listening on http://{ EC2 Instance Public IP }:6006
 
 You will need to update the security group for the EC2 instance and allow traffic
-to port 6006.
+to port 6006. For more information on updating security groups please see:
+
+ * [AWS EC2 - Adding Rules to a Security Group](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#adding-security-group-rule)
 
 TensorFlow Serving
 -------------------------------------------------------------------------------
@@ -278,14 +280,14 @@ Supported AWS Instances
 -------------------------------------------------------------------------------
 ```
 t2.nano     t2.micro    t2.medium   t2.large
-m3.medium	m3.large	m3.xlarge	m3.2xlarge
-m4.large	m4.xlarge	m4.2xlarge	m4.4xlarge	m4.10xlarge
-c3.large	c3.xlarge	c3.2xlarge	c3.4xlarge	c3.8xlarge
-c4.large	c4.xlarge	c4.2xlarge	c4.4xlarge	c4.8xlarge
-r3.large	r3.xlarge	r3.2xlarge	r3.4xlarge	r3.8xlarge
-i2.xlarge	i2.2xlarge	i2.4xlarge	i2.8xlarge
-d2.xlarge	d2.2xlarge	d2.4xlarge	d2.8xlarge
-g2.2xlarge	g2.8xlarge
+m3.medium   m3.large    m3.xlarge   m3.2xlarge
+m4.large    m4.xlarge   m4.2xlarge  m4.4xlarge  m4.10xlarge
+c3.large    c3.xlarge   c3.2xlarge  c3.4xlarge  c3.8xlarge
+c4.large    c4.xlarge   c4.2xlarge  c4.4xlarge  c4.8xlarge
+r3.large    r3.xlarge   r3.2xlarge  r3.4xlarge  r3.8xlarge
+i2.xlarge   i2.2xlarge  i2.4xlarge  i2.8xlarge
+d2.xlarge   d2.2xlarge  d2.4xlarge  d2.8xlarge
+g2.2xlarge  g2.8xlarge
 x1.32xlarge
 ```
 
@@ -295,7 +297,7 @@ Version History
 
 v2016.05
 
- * Updated to Tensorflow 10 (https://github.com/tensorflow/tensorflow/blob/r0.10/RELEASE.md)
+ * Updated to latest 0.9(https://github.com/tensorflow/tensorflow/blob/r0.10/RELEASE.md)
  * Updated CuDNN to 5.1
  * Updated to ipython 5
  * Updated to latest version Bitfusion Boost 0.1.0+1561
