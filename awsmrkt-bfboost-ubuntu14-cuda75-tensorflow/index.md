@@ -297,7 +297,6 @@ Version History
 
 v2016.05
 
- * Updated to latest 0.9(https://github.com/tensorflow/tensorflow/blob/r0.10/RELEASE.md)
  * Updated CuDNN to 5.1
  * Updated to ipython 5
  * Updated to latest version Bitfusion Boost 0.1.0+1561
