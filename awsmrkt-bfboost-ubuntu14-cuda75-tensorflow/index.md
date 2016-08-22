@@ -300,6 +300,7 @@ v2016.05
  * Updated CuDNN to 5.1
  * Updated to ipython 5
  * Updated to latest version Bitfusion Boost 0.1.0+1561
+ * Updated to sklearn 0.17.1 (Fixes udacity notebook tutorial)
  * Added Tensorflow Serving
  * Added GPU Stat
  * Added tflearn 0.2.1
