@@ -129,6 +129,14 @@ Version History
 -------------------------------------------------------------------------------
 
 
+v2016.04
+
+ * Updated to latest version Bitfusion Boost 0.1.0+1562
+ * Updated to latest nvidia driver 352.99
+ * Updated CuDNN to 5.1
+ * Added gpustat
+
+
 v0.03
 
  * Upgraded to boost 0.1.0+1518
