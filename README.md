@@ -1,5 +1,7 @@
 # AWS Market AMIs
 
+* [Cuda 7.0](awsmrkt-bfboost-ubuntu14-cuda70/README.md)
+* [Cuda 7.5](awsmrkt-bfboost-ubuntu14-cuda75/README.md)
 * [Caffe](awsmrkt-bfboost-ubuntu14-cuda75-caffe/README.md)
 * [Chainer](awsmrkt-bfboost-ubuntu14-cuda75-chainer/README.md)
 * [Mobile Inference & Deep Learning](awsmrkt-bfboost-ubuntu14-cuda75-mobile-inference-restapi)
